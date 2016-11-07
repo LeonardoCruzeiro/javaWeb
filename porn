@@ -29,20 +29,5 @@
 			</plugin>
 		</plugins>
 	</build>
-	<!-- Dependências -->
-	<dependencies>
-		<!-- Hibernate Core -->
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>4.3.11.Final</version>
-		</dependency>
-		
-		<!-- MySQL Connector -->
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.36</version>
-		</dependency>
-	</dependencies>
+	
 </project>
