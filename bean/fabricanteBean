@@ -1,0 +1,34 @@
+@SuppressWarnings("serial")
+@ManagedBean
+@ViewScoped
+public class FabricanteBean implements Serializable {
+
+	private Fabricante fabricante;
+
+	public Fabricante getFabricante() {
+		return fabricante;
+	}
+
+	public void setFabricante(Fabricante fabricante) {
+		this.fabricante = fabricante;
+	}
+
+	public void Salvar(){
+		try{
+		FabricanteDAO fabricanteDAO = new FabricanteDAO();
+		fabricanteDAO.salvar(fabricante);
+		novo();
+		Messages.addGlobalInfo("Salvo com sucesso");
+		}catch(RuntimeException erro){
+			Messages.addGlobalError("erro ao salvar");
+		}
+
+	
+		}
+
+	public void novo() {
+
+		fabricante = new Fabricante();
+
+	}
+}
