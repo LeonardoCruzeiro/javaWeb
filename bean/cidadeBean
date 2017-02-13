@@ -1,0 +1,118 @@
+@SuppressWarnings("serial")
+@ManagedBean
+@ViewScoped
+public class CidadeBean implements Serializable {
+
+	private Cidade cidade;
+	private Estado estado;
+
+	private List<Cidade> cidades;
+	private List<Estado> estados;
+
+	public Cidade getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(Cidade cidade) {
+		this.cidade = cidade;
+	}
+
+	public List<Cidade> getCidades() {
+		return cidades;
+	}
+
+	public void setCidades(List<Cidade> cidades) {
+		this.cidades = cidades;
+	}
+	
+	
+	public void editar(ActionEvent evento){
+		try{
+			cidade=(Cidade) evento.getComponent().getAttributes().get("cidadeSelecionada");
+			CidadeDAO cidadeDAO = new CidadeDAO();
+			EstadoDAO estadoDAO = new EstadoDAO();
+			cidadeDAO.merge(cidade);
+			
+			estados = estadoDAO.listar();
+			
+			
+			Messages.addGlobalInfo("Alterado com sucesso");
+			
+		}catch(RuntimeException erro){
+			Messages.addGlobalError("erro ao alterar");
+		}
+	}
+
+	public void excluir(ActionEvent evento){
+		try{
+			cidade=(Cidade) evento.getComponent().getAttributes().get("cidadeSelecionada");
+			CidadeDAO cidadeDAO = new CidadeDAO();
+			cidadeDAO.Excluir(cidade);
+			
+			cidades = cidadeDAO.listar();
+			
+			Messages.addGlobalInfo("Excluido com sucesso");
+			
+		}catch(RuntimeException erro){
+			Messages.addGlobalError("erro ao excluir");
+		}
+	}
+	
+	public void salvar() {
+		try {
+			CidadeDAO cidadeDAO = new CidadeDAO();
+			EstadoDAO estadoDAO = new EstadoDAO();
+			cidadeDAO.merge(cidade);
+			cidades = cidadeDAO.listar();
+			estados = estadoDAO.listar();
+			
+			Messages.addGlobalInfo("Salvo com sucesso");
+		} catch (RuntimeException erro) {
+			Messages.addGlobalError("ERRO AO SALVAR");
+			erro.printStackTrace();
+		}
+	}
+
+	@PostConstruct
+	public void listar() {
+		try {
+			CidadeDAO cidadeDAO = new CidadeDAO();
+			EstadoDAO estadoDAO = new EstadoDAO();
+			estados = estadoDAO.listar();
+			cidades = cidadeDAO.listar();
+
+		} catch (RuntimeException erro) {
+			Messages.addGlobalError("Erro ao listar");
+			erro.printStackTrace();
+		}
+	}
+
+	public void novo() {
+		try {
+			EstadoDAO estadoDAO = new EstadoDAO();
+			cidade = new Cidade();
+			estados = estadoDAO.listar();
+
+		} catch (RuntimeException erro) {
+			Messages.addGlobalError("erro ao criar novo");
+			erro.printStackTrace();
+		}
+	}
+
+	public List<Estado> getEstados() {
+		return estados;
+	}
+
+	public void setEstados(List<Estado> estados) {
+		this.estados = estados;
+	}
+
+	public Estado getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Estado estado) {
+		this.estado = estado;
+	}
+
+}
