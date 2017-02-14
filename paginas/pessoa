@@ -82,14 +82,15 @@
 				<p:inputText id="cpf" />
 				
 				<p:outputLabel value="Estado:" />
-				<p:selectOneMenu id="estado" filter="true" value="#{cidadeBean.cidade.estado}"
+				<p:selectOneMenu id="estado" filter="true" value="#{pessoaBean.estado}"
 					converter="omnifaces.SelectItemsConverter"
 					required="true" requiredMessage="Informe o Estado">
 				<f:selectItem noSelectionOption="true"
-						itemLabel="Selecione uma ESTADO" />	
-				<f:selectItems value="#{}" var=""
-						itemValue="#{}" itemLabel="#{}" />	
-						
+						itemLabel="Selecione uma estado" />	
+				<f:selectItems value="#{pessoaBean.estados}" var="estado"
+						itemValue="#{estado}" itemLabel="#{estado.nome}" />	
+				<p:ajax listener="#{pessoaBean.popular}" update=":formCadastro:cidade"/>	
+					
 				</p:selectOneMenu>
 				
 				<p:outputLabel for="cidade" value="Cidade:" />
@@ -99,14 +100,14 @@
 					value="#{pessoaBean.pessoa.cidade}">
 					<f:selectItem noSelectionOption="true"
 						itemLabel="Selecione uma cidade" />
-					<f:selectItems value="#{}" var="cidade"
-						itemValue="#{}" itemLabel="#{}" />
+					<f:selectItems value="#{pessoaBean.cidades}" var="cidade"
+						itemValue="#{cidade}" itemLabel="#{cidade.nome}" />
 				</p:selectOneMenu>
 				
 				<p:outputLabel for="sexo" value="sexo:" />
 				<p:inputText id="sexo" maxlength="1" size="5"
 					value="#{pessoaBean.pessoa.sexo}" required="true"
-					requiredMessage="O campo 'Bairro' é obrigatório" />
+					requiredMessage="O campo 'sexo' é obrigatório" />
 					
 						
 									
