@@ -85,8 +85,10 @@
 				<p:selectOneMenu id="estado" filter="true" value="#{cidadeBean.cidade.estado}"
 					converter="omnifaces.SelectItemsConverter"
 					required="true" requiredMessage="Informe o Estado">
-				<f:selectItems value="#{cidadeBean.estados}" var="estado"
+				<f:selectItems value="#{pessoaBean.estados}" var="estado"
 						itemValue="#{estado}" itemLabel="#{estado.nome}" />	
+				<f:selectItems value="#{pessoaBean.cidades}" var="cidade"
+						itemValue="#{cidade}" itemLabel="#{cidade.nome}"/>		
 				</p:selectOneMenu>
 				
 				<p:outputLabel value="Cidade:" />
