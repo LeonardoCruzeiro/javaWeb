@@ -103,28 +103,12 @@
 						itemValue="#{}" itemLabel="#{}" />
 				</p:selectOneMenu>
 				
-				<p:outputLabel for="rua" value="Rua:" />
-				<p:inputText id="rua" maxlength="100" size="50"
-					value="#{pessoaBean.pessoa.rua}" required="true"
-					requiredMessage="O campo 'Rua' é obrigatório" />
-
-				<p:outputLabel value="Número" />
-				<p:inputText maxlength="5" size="10"
-					value="#{pessoaBean.pessoa.numero}" required="true"
-					requiredMessage="O campo 'Número' é obrigatório"
-					converterMessage="Informe um valor válido para o campo 'Número'"
-					validatorMessage="Informe um valor entre 1 e 32767 para o campo 'Número'">
-					<f:validateLongRange minimum="1" maximum="32767" />
-				</p:inputText>	
-
 				<p:outputLabel for="bairro" value="Bairro:" />
 				<p:inputText id="bairro" maxlength="30" size="20"
 					value="#{pessoaBean.pessoa.bairro}" required="true"
 					requiredMessage="O campo 'Bairro' é obrigatório" />
 					
-				<p:outputLabel for="cep" value="CEP:" />
-				<p:inputText id="cep" />
-				
+								
 				<p:outputLabel for="complemento" value="Complemento:" />
 				<p:inputText id="complemento" maxlength="10" size="10"
 					value="#{pessoaBean.pessoa.complemento}" />
@@ -135,10 +119,13 @@
 				<p:outputLabel for="celular" value="Celular:" />
 				<p:inputText id="celular" />
 				
-				<p:outputLabel for="email" value="Email:" />
-				<p:inputText id="email" maxlength="100" size="50"
-					value="#{pessoaBean.pessoa.email}" required="true"
-					requiredMessage="O campo 'Email' é obrigatório" />
+				<p:outputLabel for="dataNasc" value="Data de Nascimento:" />
+				<p:calendar id="dataNasc"
+					value="#{pessoaBean.pessoa.nascimento}" required="true"
+					requiredMessage="O campo 'Data de Nasccimento' é obrigatório"
+					size="10" />
+				
+				
 			</h:panelGrid>
 
 			<h:panelGrid columns="2">
