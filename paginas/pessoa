@@ -87,8 +87,8 @@
 					required="true" requiredMessage="Informe o Estado">
 				<f:selectItem noSelectionOption="true"
 						itemLabel="Selecione uma ESTADO" />	
-				<f:selectItems value="#{pessoaBean.estados}" var="estado"
-						itemValue="#{estado}" itemLabel="#{estado.nome}" />	
+				<f:selectItems value="#{}" var=""
+						itemValue="#{}" itemLabel="#{}" />	
 						
 				</p:selectOneMenu>
 				
@@ -99,8 +99,8 @@
 					value="#{pessoaBean.pessoa.cidade}">
 					<f:selectItem noSelectionOption="true"
 						itemLabel="Selecione uma cidade" />
-					<f:selectItems value="#{pessoaBean.cidades}" var="cidade"
-						itemValue="#{cidade}" itemLabel="#{cidade.nome}" />
+					<f:selectItems value="#{}" var=""
+						itemValue="#{}" itemLabel="#{}" />
 				</p:selectOneMenu>
 				
 				<p:outputLabel for="rua" value="Rua:" />
