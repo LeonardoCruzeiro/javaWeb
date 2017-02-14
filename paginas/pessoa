@@ -99,20 +99,17 @@
 					value="#{pessoaBean.pessoa.cidade}">
 					<f:selectItem noSelectionOption="true"
 						itemLabel="Selecione uma cidade" />
-					<f:selectItems value="#{}" var=""
+					<f:selectItems value="#{}" var="cidade"
 						itemValue="#{}" itemLabel="#{}" />
 				</p:selectOneMenu>
 				
-				<p:outputLabel for="bairro" value="Bairro:" />
-				<p:inputText id="bairro" maxlength="30" size="20"
-					value="#{pessoaBean.pessoa.bairro}" required="true"
+				<p:outputLabel for="sexo" value="sexo:" />
+				<p:inputText id="sexo" maxlength="1" size="5"
+					value="#{pessoaBean.pessoa.sexo}" required="true"
 					requiredMessage="O campo 'Bairro' é obrigatório" />
 					
-								
-				<p:outputLabel for="complemento" value="Complemento:" />
-				<p:inputText id="complemento" maxlength="10" size="10"
-					value="#{pessoaBean.pessoa.complemento}" />
-					
+						
+									
 				<p:outputLabel for="telefone" value="Telefone:" />
 				<p:inputText id="telefone" />
 				
@@ -120,7 +117,7 @@
 				<p:inputText id="celular" />
 				
 				<p:outputLabel for="dataNasc" value="Data de Nascimento:" />
-				<p:calendar id="dataNasc"
+				<p:inputMask mask="99/99/9999" id="dataNasc"
 					value="#{pessoaBean.pessoa.nascimento}" required="true"
 					requiredMessage="O campo 'Data de Nasccimento' é obrigatório"
 					size="10" />
