@@ -4,6 +4,11 @@
 <meta charset="UTF-8"/>
 <title>Cadastro de título</title>
 <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
-<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+
 </head>
 <body>
+	<h1>Funcionou essa *****</h1>
+
+<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>
