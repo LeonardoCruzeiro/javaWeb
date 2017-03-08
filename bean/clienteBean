@@ -2,7 +2,6 @@
 @ManagedBean
 @ViewScoped
 public class ClienteBean implements Serializable {
-	
 	private Cliente cliente;
 
 	private List<Cliente> clientes;
